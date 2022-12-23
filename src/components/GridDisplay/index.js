@@ -4,7 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 const GridDisplay = (props) => {
-    const { columnHeaders, rowData, LinkComponent } = props;
+    const { columnHeaders, rowData } = props;
     return (
         <div
             id='myGrid'
@@ -20,9 +20,6 @@ const GridDisplay = (props) => {
                 rowData={rowData}
                 pagination={true}
                 paginationAutoPageSize={true}
-                frameworkComponents={{
-                    LinkComponent,
-                }}
             />
         </div>
     );

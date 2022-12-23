@@ -33,7 +33,6 @@ export const columnHeaders = [
         sortable: true,
         filter: true,
         resizable: true,
-        cellRenderer: 'LinkComponent',
     },
     {
         headerName: 'Status',

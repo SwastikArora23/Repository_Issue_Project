@@ -1,26 +1,13 @@
 import React from 'react';
 import { columnHeaders } from '../../common/constants';
 import { useSelector } from 'react-redux';
-import { GITHUB_WEB_URL } from '../../common/appEnv';
-import { GET_USER_REPO_SUCCESS } from '../../common/constants';
 import { useDispatch } from 'react-redux';
 import { useStyles } from '../../styles/components/listOfRepo';
-import { Box, Button } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import GridDisplay from '../GridDisplay';
 import { useHistory } from 'react-router-dom';
 import { withSnackbar } from 'notistack';
 import PropTypes from 'prop-types';
-
-const LinkComponent = (props) => {
-    const getUserNameFromRedux = (state) => state.loginReducer.uname;
-    const uname = useSelector(getUserNameFromRedux);
-    const url = `${GITHUB_WEB_URL}/${uname}/${props.value}`;
-    return (
-        <a id='repositoryData' href={url}>
-            {props.value}
-        </a>
-    );
-};
 
 const ListOfRepo = (props) => {
     const { enqueueSnackbar } = props;
@@ -33,25 +20,12 @@ const ListOfRepo = (props) => {
     const classes = useStyles(props);
     const dispatch = useDispatch();
 
-    const onClickHandler = () =>
-        dispatch({ type: GET_USER_REPO_SUCCESS, data: [] });
-
     return (
         <Box className={classes.listOfRepoContainer}>
             <GridDisplay
                 rowData={rowData}
                 columnHeaders={columnHeaders}
-                LinkComponent={LinkComponent}
             />
-            <Button
-                disabled={rowData.length === 0}
-                className={classes.resetBtn}
-                variant='contained'
-                color='primary'
-                onClick={onClickHandler}
-            >
-			Clear Repositories
-            </Button>
         </Box>
     );
 };
