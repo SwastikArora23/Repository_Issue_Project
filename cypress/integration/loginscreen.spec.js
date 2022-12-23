@@ -28,7 +28,7 @@ describe('LoginScreen', () => {
 	});
 
 	it('Login Functionality using Valid Username', () => {
-		const validUser = 'aryan21710';
+		const validUser = 'SwastikArora23';
 		cy.get('.username').type(validUser);
 		cy.get('button').contains('Submit').click({ force: true });
 		cy.url().should('include', `/displayuserrepo/${validUser}`);

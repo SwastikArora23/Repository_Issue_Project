@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-undef */
 describe('Display User Repo Screen', () => {
-	var gitHubValidUserName = 'aryan21710';
+	var gitHubValidUserName = 'SwastikArora23';
     var gitHubRepoRedirectLink;
     var nameOfFirstRepo;
 
